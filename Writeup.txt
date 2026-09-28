@@ -1,0 +1,13 @@
+TASK 18 WRITE-UP
+
+1. How does the Navbar update immediately after a name or avatar change?
+The Profile page calls updateUser() from AuthContext. AuthContext updates its shared user state, and React re-renders components that use that state, including Navbar. No page refresh is required.
+
+2. Why verify the current password before allowing a change?
+It confirms that the person requesting the change knows the existing password. Without this check, someone with an active account session could replace the password without proving knowledge of the current credential.
+
+3. Why return 401 for a wrong current password instead of 400?
+401 indicates that the request is not authenticated/authorized for the requested credential-sensitive action. 400 is generally for malformed or invalid request data.
+
+4. What is updateUser() for?
+It updates the logged-in user's shared data in AuthContext. This keeps the name and avatar synchronized across the app, especially in the Navbar, immediately after a profile update.

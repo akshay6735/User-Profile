@@ -1,0 +1,29 @@
+TASK 18 - USER PROFILE & SETTINGS
+
+This project builds on the Task 17 E-Commerce app.
+
+FIRST: Run backend/task18_migration.sql in MySQL against the existing ecommerce database.
+THEN: Copy backend/.env.example to backend/.env and set your local MySQL password and JWT_SECRET_KEY.
+
+Backend:
+- JWT-protected GET /api/me
+- PUT /api/me
+- PUT /api/me/password
+- PUT /api/me/avatar
+- POST /api/refresh
+
+Frontend:
+- /profile page
+- AuthContext updateUser()
+- Navbar avatar/initials and My Profile link
+- Profile picture preview/upload
+- Edit profile with inline email conflict error
+- Password change with inline current-password error
+
+Run:
+1. Activate the backend virtual environment and install requirements.
+2. Start Flask on port 5000.
+3. Run npm install in frontend if needed.
+4. Start Vite with npm run dev.
+
+Test wrong current password: PUT /api/me/password must return HTTP 401.
